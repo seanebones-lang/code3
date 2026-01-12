@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-term-ex"
+version = "1.0.0"
+description = "Production-ready terminal AI agent replicating Claude's capabilities with xAI Grok 4.1 Fast"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+authors = [
+    {name = "Dr. Elena Voss"}
+]
+keywords = ["ai", "agent", "terminal", "grok", "xai", "m1", "mlx"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: MacOS :: MacOS X",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "openai>=1.50.0",
+    "textual>=0.89.0",
+    "click>=8.1.0",
+    "jupyter_client>=8.6.0",
+    "ipykernel>=6.29.0",
+    "mlx>=0.21.0",
+    "numpy>=1.24.0",
+    "gitpython>=3.1.0",
+    "duckduckgo-search>=6.3.0",
+    "aiosqlite>=0.20.0",
+    "rich>=13.9.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+claude-term-ex = "claude_term_ex.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+claude_term_ex = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ["py313"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
